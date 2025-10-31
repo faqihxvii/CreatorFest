@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- [MODIFIED] Title (Emoji Dihapus) -->
+    <title>Creator Formula: Strategy, Psychology, and Storytelling Mastery</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* * ======================================================
+         * CSS VARIABLES - CREATOR FEST THEME
+         * ======================================================
+         */
+        :root {
+            --background: #FFF8E7; /* Warm Cream */
+            --foreground: #111827; /* Dark Charcoal */
+            --card: #FFFFFF;
+            --card-border: #111827;
+            --hard-shadow: 8px 8px 0px #111827;
+            --card-secondary: #F3F4F6; /* Light Gray */
+            --text-secondary: #4B5563; /* Cool Gray */
+            --primary-accent: #EC4899; /* Hot Pink */
+            --secondary-accent: #4F46E5; /* Electric Blue */
+            --tertiary-accent: #F59E0B; /* Sunny Yellow */
+            --radius: 0.75rem; /* 12px */
+        }
+
+        /* * ======================================================
+         * BASE & BACKGROUND
+         * ======================================================
+         */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background-color: var(--background);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><g fill="%23111827" opacity="0.03"><path d="M10 10 C 20 20, 40 20, 50 10 S 80 0, 90 10" stroke="%23111827" stroke-width="2" fill="none"/><circle cx="80" cy="80" r="3"/><rect x="20" y="70" width="5" height="5" transform="rotate(10 20 70)"/><path d="M 30 40 L 40 50 L 30 60" stroke="%23111827" stroke-width="2" fill="none"/><circle cx="10" cy="110" r="4"/><rect x="95" y="5" width="6" height="6" transform="rotate(45 95 5)"/><path d="M60 20 Q70 30 80 20" stroke="%23111827" stroke-width="1" fill="none"/></g></svg>');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* [NEW] Floating Decorative Elements */
+        .floating-element {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.7;
+            animation: float 15s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 0; /* [NEW] Di belakang konten */
+        }
+
+        .floating-element.one { top: 5%; left: 10%; animation-delay: 0s; transform: scale(0.9); }
+        .floating-element.two { top: 20%; right: 5%; animation-delay: 3s; transform: scale(1.1); }
+        .floating-element.three { bottom: 15%; left: 20%; animation-delay: 6s; transform: scale(0.8); }
+        .floating-element.four { top: 40%; left: 45%; animation-delay: 9s; transform: scale(1.2); }
+        .floating-element.five { bottom: 5%; right: 15%; animation-delay: 12s; transform: scale(1.0); }
+
+        @keyframes float {
+            0% { transform: translateY(0px); opacity: 0.7; }
+            50% { transform: translateY(-15px); opacity: 0.8; }
+            100% { transform: translateY(0px); opacity: 0.7; }
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        main > section {
+            margin-bottom: 80px;
+            padding-top: 80px;
+        }
+        
+        header {
+            margin-bottom: 80px;
+        }
+        
+        h1, h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 400;
+            color: var(--foreground);
+        }
+        
+        h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            color: var(--foreground);
+        }
+
+
+        /* * ======================================================
+         * HEADER (HERO)
+         * ======================================================
+         */
+        header {
+            text-align: center;
+            padding: 100px 40px 80px 40px;
+            position: relative; /* [NEW] Buat z-index floating */
+            overflow: hidden; /* [NEW] Biar emoji gak keluar */
+        }
+
+        header h1 {
+            font-size: 5.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative; /* [NEW] Di atas floating */
+            z-index: 1;
+        }
+
+        header h1 strong {
+            background-color: var(--tertiary-accent);
+            color: var(--foreground);
+            padding: 0 12px;
+        }
+        
+        header .sub-headline {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative; /* [NEW] Di atas floating */
+            z-index: 1;
+        }
+
+        /* * ======================================================
+         * BUTTONS (Tombol)
+         * ======================================================
+         */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: var(--radius);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 3px solid var(--foreground);
+            position: relative;
+            z-index: 1; /* [NEW] Di atas floating */
+        }
+
+        .btn-primary {
+            background: var(--primary-accent);
+            color: var(--card);
+            box-shadow: var(--hard-shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 4px 4px 0px var(--foreground);
+            animation: wiggle 0.3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes wiggle {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+        .btn i {
+            margin-left: 10px;
+        }
+
+        /* * ======================================================
+         * [NEW] FLIP CARD GRID (Problem + Solution)
+         * ======================================================
+         */
+        #formula-section {
+            padding-top: 0;
+            text-align: center;
+        }
+
+        #formula-section h2 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .formula-subheadline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .flip-card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* The flip card container */
+        .flip-card {
+            background-color: transparent;
+            height: 350px;
+            perspective: 1000px; /* 3D effect */
+            cursor: pointer;
+        }
+        
+        /* The inner element that does the actual flip */
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        /* JavaScript will add this class */
+        .flip-card.clicked .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        /* Front and back card styling */
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            
+            /* Copying the 'Creator Fest' card style */
+            background-color: var(--card);
+            border: 3px solid var(--card-border);
+            box-shadow: var(--hard-shadow);
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center; /* Center align emoji and text */
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Back card is flipped 180deg */
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background-color: var(--card-secondary); /* Different bg for back */
+        }
+        
+        .flip-card:hover .flip-card-front {
+            /* Fun hover effect before flip */
+            transform: translate(3px, 3px);
+            box-shadow: 4px 4px 0px var(--card-border);
+        }
+        
+        .flip-card h3 {
+            font-size: 1.8rem;
+            margin: 15px 0 10px 0;
+            text-align: center;
+        }
+        
+        .flip-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        .click-hint {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-accent);
+            margin-top: 15px;
+            text-align: center;
+        }
+
+
+        /* * ======================================================
+         * FEATURE BLOCK (Speaker & USP)
+         * ======================================================
+         */
+        .feature-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            padding: 0 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .feature-block.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .feature-text {
+            flex: 1;
+        }
+        
+        .feature-text h2 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .feature-text p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Social Media Links */
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+        }
+        
+        .feature-block.reverse .social-links {
+            justify-content: flex-start;
+        }
+        
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            color: var(--foreground);
+            background-color: var(--card);
+            border: 3px solid var(--foreground);
+            border-radius: 50%;
+            box-shadow: 4px 4px 0px var(--foreground);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .social-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--foreground);
+            background-color: var(--card-secondary);
+        }
+        
+        .feature-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .feature-visual img {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--hard-shadow);
+            border: 3px solid var(--foreground);
+            transition: all 0.2s ease;
+            will-change: transform;
+        }
+        
+        .feature-visual img:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 4px 4px 0px var(--foreground);
+        }
+
+
+        /* * ======================================================
+         * ACCORDION (FAQ Style)
+         * ======================================================
+         */
+        .accordion-section {
+            padding-bottom: 0;
+            text-align: center;
+        }
+        
+        .accordion-section h2 {
+            font-size: 4rem;
+            margin-bottom: 40px;
+        }
+        
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            background-color: var(--card);
+            border: 3px solid var(--card-border);
+            border-radius: var(--radius);
+            box-shadow: var(--hard-shadow);
+            overflow: hidden;
+            transition: all 0.2s ease; /* For hover effect */
+        }
+        
+        .accordion-item:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 4px 4px 0px var(--card-border);
+        }
+
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--foreground);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            position: relative;
+        }
+        
+        .accordion-header:hover {
+            background-color: #fafafa;
+            animation: wiggle-small 0.2s ease-in-out infinite alternate;
+        }
+
+        @keyframes wiggle-small {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(-0.5deg); }
+            100% { transform: rotate(0.5deg); }
+        }
+
+        .accordion-header i {
+            font-size: 1.5rem;
+            color: var(--primary-accent);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-header i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            color: var(--text-secondary);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+            padding: 25px 25px 30px;
+        }
+        
+        .accordion-content p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* * ======================================================
+         * [NEW] SPILL SECTION
+         * ======================================================
+         */
+        #spill-section {
+            padding-top: 0; /* No padding top because it follows CTA */
+            text-align: center;
+        }
+        .spill-box {
+            background-color: var(--card);
+            border: 3px solid var(--card-border);
+            box-shadow: var(--hard-shadow);
+            border-radius: var(--radius);
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .spill-box h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .spill-box .spill-subheadline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .spill-list {
+            list-style: none;
+            padding: 0;
+        }
+        .spill-list li {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+            background-color: var(--card-secondary);
+            border: 2px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            box-shadow: 4px 4px 0px var(--card-border);
+            display: flex;
+            align-items: center;
+        }
+        .spill-list li i {
+            font-size: 1.2rem;
+            color: var(--primary-accent);
+            margin-right: 15px;
+        }
+
+
+        /* * ======================================================
+         * FINAL CTA (TIKET)
+         * ======================================================
+         */
+        
+        #final-cta-section {
+            padding-bottom: 0;
+        }
+        
+        .details-info-box {
+            background-color: var(--card);
+            border: 3px solid var(--card-border);
+            box-shadow: var(--hard-shadow);
+            
+            border-radius: var(--radius);
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+        }
+
+        .details-info-box h2 {
+            text-align: left;
+            font-size: 2.5rem;
+            padding-bottom: 0;
+            margin-bottom: 25px;
+        }
+
+        .details-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .details-list li {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-secondary);
+        }
+        
+        .details-list li strong {
+            color: var(--foreground);
+            font-weight: 600;
+            width: 100px;
+            flex-shrink: 0;
+        }
+        
+        .details-list li span {
+            font-weight: 500;
+            color: var(--foreground);
+        }
+
+        .details-list li i {
+            color: var(--primary-accent);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .limited-note {
+            margin-top: 25px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .ticket-box-full {
+            background-color: var(--card);
+            border: 3px solid var(--card-border);
+            box-shadow: var(--hard-shadow);
+            
+            border-radius: var(--radius);
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ticket-main {
+            padding: 40px 40px 30px 40px;
+            text-align: left;
+        }
+        
+        .ticket-stub-bottom {
+            background-color: var(--card-secondary);
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 3px dashed var(--foreground);
+            position: relative;
+        }
+        
+        .ticket-stub-bottom::before,
+        .ticket-stub-bottom::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--background);
+        }
+        .ticket-stub-bottom::before {
+            left: -12px;
+        }
+        .ticket-stub-bottom::after {
+            right: -12px;
+        }
+        
+        .value-stack-list {
+            list-style: none;
+            padding: 0 0 15px 0;
+            margin: 0 0 15px 0;
+            text-align: left;
+            border-bottom: 1px dashed var(--text-secondary);
+            max-width: 500px;
+        }
+        
+        .value-stack-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--foreground);
+        }
+        
+        .value-stack-list li .value-price {
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            font-size: 0.9rem;
+        }
+        
+        .total-value {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            max-width: 500px;
+        }
+        
+        .total-value .value-price {
+            text-decoration: line-through;
+        }
+        
+        .price-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--foreground);
+            margin-bottom: 5px;
+        }
+        
+        .price-display {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary-accent);
+            font-family: 'Bebas Neue', sans-serif;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary-cta {
+            font-size: 1.4rem;
+            font-weight: 700;
+            padding: 20px 40px;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            z-index: 2;
+            will-change: transform;
+            background: var(--primary-accent);
+            color: var(--card);
+            box-shadow: var(--hard-shadow);
+            border: 3px solid var(--foreground);
+            animation: none;
+        }
+        
+        .btn-primary-cta:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 4px 4px 0px var(--foreground);
+            animation: wiggle 0.3s ease-in-out infinite alternate;
+        }
+
+        /* * ======================================================
+         * FOOTER (With Mini Partners)
+         * ======================================================
+         */
+        footer {
+            text-align: center;
+            padding: 70px 40px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            max-width: 900px;
+            margin: 80px auto 0 auto;
+            background: transparent;
+        }
+        
+        #partners-mini-section-footer {
+            margin-bottom: 30px;
+        }
+        
+        #partners-mini-section-footer h3 {
+            font-size: 1.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        
+        .partner-mini-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .partner-mini-item {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+        
+        .partner-mini-item i {
+            margin-right: 8px;
+        }
+        
+        .partner-mini-item:hover {
+            color: var(--foreground);
+        }
+        
+        .footer-divider {
+            border: 0;
+            height: 2px;
+            background-color: var(--card-secondary);
+            margin: 0 auto 30px auto;
+            max-width: 300px;
+        }
+        
+        footer p {
+            margin-bottom: 15px;
+        }
+        
+        footer .footer-title {
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+        
+        footer a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* * ======================================================
+         * RESPONSIVE DESIGN
+         * ======================================================
+         */
+        @media (max-width: 960px) {
+            .feature-block {
+                flex-direction: column !important;
+                text-align: center;
+                padding: 50px 30px;
+            }
+            .feature-text { padding-right: 0; }
+            .feature-text h2 { font-size: 3.5rem; }
+            .feature-text p { font-size: 1.1rem; }
+            .feature-visual img { max-width: 400px; }
+            
+            .social-links, .feature-block.reverse .social-links {
+                justify-content: center;
+            }
+            
+            /* [MODIFIED] Flip card grid responsive */
+            .flip-card-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                /* [DELETED] max-width: 400px; */
+            }
+            .flip-card {
+                height: 320px; /* Adjust height for mobile */
+            }
+            
+            .details-info-box {
+                padding: 40px;
+            }
+            .details-info-box h2 { text-align: center; }
+            .details-list { max-width: 400px; margin-left: auto; margin-right: auto; }
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            header { padding: 80px 20px 40px 20px; }
+            header h1 { font-size: 4rem; }
+            header .sub-headline { font-size: 1.2rem; }
+            .btn { width: 100%; }
+            main > section { margin-bottom: 60px; padding-top: 60px; }
+            
+            .accordion-section h2, .feature-text h2, #formula-section h2 { font-size: 3rem; }
+            .accordion-header { font-size: 1.1rem; }
+            .details-info-box { padding: 30px; }
+            .price-display { font-size: 3.5rem; }
+            footer { padding: 50px 30px 30px 30px; margin-top: 60px; }
+            
+            .ticket-main { padding: 30px; }
+            .value-stack-list, .total-value { max-width: 100%; }
+        }
+        
+        @media (max-width: 480px) {
+             header h1 { font-size: 3.2rem; }
+             header .sub-headline { font-size: 1.1rem; }
+             .feature-block { padding: 40px 25px; }
+             .feature-text h2 { font-size: 2.5rem; }
+             .feature-text p { font-size: 1rem; }
+             .accordion-header { font-size: 1rem; }
+             
+             /* [NEW] Mobile flip card font size fix */
+             .flip-card {
+                height: 300px; /* Bikin sedikit lebih pendek */
+             }
+             .flip-card h3 {
+                font-size: 1.5rem; /* Kecilin font di mobile */
+             }
+             .flip-card p {
+                font-size: 0.9rem; /* Kecilin font di mobile */
+             }
+             
+             .details-info-box { padding: 25px; }
+             .details-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+             }
+             .details-list li strong { width: auto; }
+             .ticket-main { padding: 30px 25px 20px 25px; }
+             .ticket-stub-bottom { padding: 25px; }
+             .price-display { font-size: 3rem; }
+             .btn-primary-cta { font-size: 1.1rem; padding: 18px; }
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="content-wrapper">
+        <header>
+            
+            <!-- [NEW] Floating Emojis (di dalam header, tapi sebelum container) -->
+            <div class="floating-element one">✨</div>
+            <div class="floating-element two">🚀</div>
+            <div class="floating-element three">🎉</div>
+            <div class="floating-element four">💡</div>
+            <div class="floating-element five">💰</div>
+
+            <div class="container">
+                <!-- [MODIFIED] Headline (Emoji Dihapus) -->
+                <h1>CREATOR FORMULA:<br><strong>STRATEGY, PSYCHOLOGY, AND STORYTELLING MASTERY</strong></h1>
+                <!-- [MODIFIED] Sub-headline (Emoji Dihapus) -->
+                <p class="sub-headline">
+                    Bongkar <strong>blueprint</strong> A-Z dari <strong>dua master creator</strong>. Ubah passion jadi sustainable career!
+                </p>
+                <!-- [MODIFIED] Teks Tombol CTA -->
+                <a href="#final-cta-section" class="btn btn-primary">AMBIL TIKETMU <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </header>
+
+        <main>
+            
+            
+
+<!-- [MODIFIED] FLIP CARD SECTION (New Content) -->
+            <section id="formula-section">
+                <div class="container">
+                    <!-- [MODIFIED] Headline (Emoji Dihapus) -->
+                    <h2>INI 3 PILAR FORMULA KITA.</h2>
+                    <p class="formula-subheadline">
+                        Dunia kreator punya "aturan main"-nya sendiri. Lo tau gak kalo...
+                    </p>
+                    
+                    <div class="flip-card-grid">
+                        
+                        <!-- Flip Card 1: STRATEGY / STORYTELLING -->
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <!-- [MODIFIED] Replaced <i> with emoji -->
+                                    <span style="font-size: 3rem; line-height: 1;">⌛️</span>
+                                    <h3>"Lo cuma punya 3 DETIK."</h3>
+                                    <!-- [MODIFIED] Ganti YouTube ke Instagram -->
+                                    <p>Rata-rata penonton <strong>Instagram & TikTok</strong> nentuin mau lanjut nonton atau <strong>SKIP</strong> di 3 detik pertama.</p>
+                                    <span class="click-hint">GIMANA CARA 'NGE-HOOK' MEREKA? <i class="fas fa-mouse-pointer"></i></span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <!-- [MODIFIED] Replaced <i> with emoji -->
+                                    <span style="font-size: 3rem; line-height: 1;">📖</span>
+                                    <h3>Solusi: Storytelling Mastery</h3>
+                                    <p>Aubrey bakal bongkar <strong>formula ngeracik hook</strong>, <strong>konflik</strong>, dan <strong>emosi</strong>. Bikin penonton <strong>gak bisa skip</strong> video lo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Flip Card 2: PSYCHOLOGY / BRANDING -->
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <!-- [MODIFIED] Replaced <i> with emoji -->
+                                    <span style="font-size: 3rem; line-height: 1;">👥</span>
+                                    <h3>"Orang 'Beli' Orangnya, Bukan Kontennya."</h3>
+                                    <p>90% viewers bilang 'autentisitas' itu <strong>penting</strong> buat follow kreator. Tapi 'autentik' itu apa?</p>
+                                    <span class="click-hint">GIMANA CARA BANGUN TRUST? <i class="fas fa-mouse-pointer"></i></span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <!-- [MODIFIED] Replaced <i> with emoji -->
+                                    <span style="font-size: 3rem; line-height: 1;">🧠</span>
+                                    <h3>Solusi: Psychology Mastery</h3>
+                                    <p>Ubah 'viewers' jadi 'family'. Kita bedah <strong>psikologi</strong> bangun <strong>personal brand</strong> yang <strong>'sticky'</strong> dan bikin orang <strong>percaya</strong> sama lo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Flip Card 3: MONETIZATION -->
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <!-- [MODIFIED] Replaced <i> with emoji -->
+                                    <span style="font-size: 3rem; line-height: 1;">💰</span>
+                                    <h3>"Satu Income Aja Gak Cukup."</h3>
+                                    <p>Funfact: Kreator pro gak ngandelin 1 sumber income. Mereka punya <strong>minimal 3</strong> (Affiliate, Digital Products, Brand Deals).</p>
+                                    <span class="click-hint">GIMANA CARA MULAINYA? <i class="fas fa-mouse-pointer"></i></span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <!-- [MODIFIED] Replaced <i> with emoji -->
+                                    <span style="font-size: 3rem; line-height: 1;">🚀</span>
+                                    <h3>Solusi: Monetization Mastery</h3>
+                                    <p>Abduh bakal ngasih <strong>blueprint</strong> taktis cara <strong>diversify income</strong> tanpa ngerusak <strong>autentisitas</strong> lo. Mulai dari nol!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            
+            
+
+<section class="feature-block" id="speaker-profile">
+                <div class="feature-text">
+                    <!-- [MODIFIED] Ganti Headliner -> Master Creator -->
+                    <h2>MASTER CREATOR #1: AUBREY SHAGUFTA</h2>
+                    <p>
+                        Aubrey bakal <strong>spill</strong> <strong>formula</strong> utamanya: <strong>Strategy, Psychology, & Storytelling</strong>. Dia udah ngebuktiin di YouTube, Instagram, & TikTok. Sekarang giliran lo.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://youtube.com/@aubreyshagufta" target="_blank" class="social-btn" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@aubreyshagufta" target="_blank" class="social-btn" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/aubreyshagufta" target="_blank" class="social-btn" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <!-- [MODIFIED] Placeholder ganti (Aubrey = Link Asli) -->
+                    <img src="https://upld.zone.id/uploads/3zi7t0iq/aubrey-shagufta.webp" alt="Foto Aubrey Shagufta" onerror="this.src='https://placehold.co/480x480/FFF8E7/111827?text=Aubrey+Shagufta'">
+                </div>
+            </section>
+            
+            <!-- [NEW] SECTION SPEAKER 2 -->
+            <section class="feature-block reverse" id="speaker-profile-2">
+                <div class="feature-text">
+                    <!-- [MODIFIED] Ganti Headliner -> Master Creator -->
+                    <h2>MASTER CREATOR #2: ABDURRAHMAN ASSUDAISY</h2>
+                    <p>
+                        Punya formula aja gak cukup. Abdurrahman Assudaisy, <strong>expert monetisasi</strong>, bakal ngasih <strong>blueprint</strong> taktis ngubah <strong>views</strong> jadi <strong>duit</strong> (affiliate, brand deals, digital products) tanpa ngerusak <strong>autentisitas</strong> lo.
+                    </p>
+                    <!-- [NEW] Social links for Abduh -->
+                    <div class="social-links">
+                        <a href="https://youtube.com/@abduhsudaisiy" target="_blank" class="social-btn" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@abduhsudaisiyy" target="_blank" class="social-btn" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/abduhsudaisiy" target="_blank" class="social-btn" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <!-- [MODIFIED] Placeholder ganti (Abduh = Link Asli) -->
+                    <img src="https://upld.zone.id/uploads/3zi7t0iq/abdurrahhman-assudaisy.webp" alt="Foto Abdurrahman Assudaisy" onerror="this.src='https://placehold.co/480x480/FFF8E7/111827?text=Abdurrahman+Assudaisy'">
+                </div>
+            </section>
+
+            
+
+<section class="feature-block" id="usp-section"> <!-- Dibalikin jadi non-reverse biar flow-nya ganti -->
+                <div class="feature-text">
+                    <!-- [MODIFIED] (Emoji Dihapus) -->
+                    <h2>INI BUKAN CUMA WEBINAR.</h2>
+                    <p>
+                        <!-- [MODIFIED] Copywriting Mentoring -->
+                        Kami nyari <strong>10 talenta terbaik</strong> buat dapet <strong>FREE LIMITED <strong>OFFLINE</strong> GROUP MENTORING</strong>. Dapetin <strong>feedback</strong> eksklusif langsung dari <strong>expert</strong> di Geldify Digital & Samma Creative Agency. <strong>Mentoring akan diadakan di Senyawa Space.</strong>
+                    </p>
+                </div>
+                <div class="feature-visual">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1lbnRvcmluZyUyMHRlYW0lMjBkYXJrJTIwbW9vZHxlbnwwfHwwfHx8MA%D&auto=format&fit=crop&w=800&q=60" alt="Mentoring Group">
+                </div>
+            </section>
+            
+            
+
+<section id="final-cta-section">
+                <div class="container">
+                    
+                    
+
+<div class="details-info-box">
+                        <h2>SHOW INFO</h2>
+                        <ul class="details-list">
+                            <!-- [MODIFIED] Update tanggal dan tahun -->
+                            <li><i class="fas fa-calendar-alt"></i> <strong>Tanggal:</strong> <span>15 November 2025 (Sabtu)</span></li>
+                            <li><i class="fas fa-clock"></i> <strong>Waktu:</strong> <span>11.00 WIB - Selesai</span></li>
+                            <li><i class="fas fa-map-marker-alt"></i> <strong>Platform:</strong> <span>Online Via Zoom</span></li>
+                        </ul>
+                        <p class="limited-note">
+                            <!-- [MODIFIED] Hapus limit 10 orang -->
+                            *Slot sangat terbatas. Kesempatan mentoring <strong>OFFLINE</strong> akan diumumkan maks. 5 hari setelah webinar.
+                        </p>
+                    </div>
+                    
+                    
+
+<div class="ticket-box-full">
+                        <div class="ticket-main">
+                            
+
+<ul class="value-stack-list">
+                                <!-- [MODIFIED] Update value stack (Emoji Dihapus) -->
+                                <li>
+                                    <span>Creator Formula Mastery (Aubrey)</span>
+                                    <span class="value-price">Rp 500.000</span>
+                                </li>
+                                <li>
+                                    <span>Monetization Mastery (Assudaisy)</span>
+                                    <span class="value-price">Rp 500.000</span>
+                                </li>
+                                <li>
+                                    <span>Group Mentoring (10 Terpilih)</span>
+                                    <span class="value-price">Rp 1.500.000</span>
+                                </li>
+                                <li>
+                                    <span>Lifetime Recording</span>
+                                    <span class="value-price">Rp 250.000</span>
+                                </li>
+                            </ul>
+                            <div class="total-value">
+                                <span>Total Value:</span>
+                                <span class="value-price">Rp 2.750.000</span>
+                            </div>
+                        </div>
+                        <div class="ticket-stub-bottom">
+                            <p class="price-label">Harga Spesial Hari Ini:</p>
+                            <p class="price-display">Rp 99.000</p>
+                            
+                            <!-- [MODIFIED] Teks Tombol CTA -->
+                            <a href="#" class="btn btn-primary btn-primary-cta" id="btn-primary-cta">
+                                AMBIL TIKETMU SEKARANG! <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            
+
+<div class="section-divider"></div>
+
+<!-- [NEW] SPILL SECTION -->
+<section id="spill-section">
+    <div class="container">
+        <div class="spill-box">
+            <h2>BOCORAN MATERI 'DAGING' 🤫</h2>
+            <p class="spill-subheadline">Ini cuma <strong>beberapa</strong> rahasia yang bakal dibongkar (yang gak lo temuin di webinar lain!):</p>
+            <ul class="spill-list">
+                <li><i class="fas fa-check-circle"></i>FORMULA 'HOOK 3 DETIK' AUBREY (STUDI KASUS VIRAL TIKTOK)</li>
+                <li><i class="fas fa-check-circle"></i>PSIKOLOGI 'SUPERFANS': NGEMAS KONTEN 'BORING' JADI 'NAGIH'</li>
+                <li><i class="fas fa-check-circle"></i>BLUEPRINT MONETISASI ABDUH (DARI 0 KE JUTAAN PERTAMA)</li>
+                <li><i class="fas fa-check-circle"></i>CARA NENTUIN 'RATE CARD' & NEGOSIASI BRAND DEALS</li>
+                <li><i class="fas fa-check-circle"></i>RAHASIA STORYTELLING YANG BIKIN VIEWERS 'PERCAYA' SAMA LO</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="faq-section" class="accordion-section">
+                <div class="container">
+                    <!-- [MODIFIED] Headline FAQ -->
+                    <h2>YANG SERING DITANYAIN, NIH..</h2>
+                    <div class="accordion">
+                        <!-- [NEW] FAQ 1 - 2 Speaker -->
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                Ada 2 speaker? Materinya apa aja?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Betul! <strong>Aubrey Shagufta</strong> akan fokus ke <strong>Formula</strong> (Strategy, Psychology, Storytelling). Dilanjut <strong>Abdurrahman Assudaisy</strong> yang fokus ke <strong>Monetization</strong>. Lengkap banget!</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                Gimana cara daftarnya?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Gampang! Klik tombol "AMBIL TIKETMU SEKARANG!", isi data, dan selesaikan pembayaran. Link Zoom bakal dikirim H-1 ke email lo.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                Kalo gak bisa hadir, dapet rekaman (recording) gak?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p><strong>100% dapet!</strong> Semua peserta bakal dapet <strong>lifetime access</strong> ke rekaman webinar. Jadi lo bisa ulang materinya kapan aja.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                Mentoring eksklusifnya kapan dan gimana?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p>10 peserta terbaik akan diumumkan <strong>maksimal 5 hari setelah webinar</strong>. Jadwal mentoring <strong>OFFLINE di Senyawa Space</strong> akan diatur terpisah biar pas sama jadwal lo dan para mentor.</p>
+                            </div>
+                        </div>
+                        <!-- [NEW] FAQ 5 (dari v20) -->
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                Ini buat pemula banget atau yang udah ada followers?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Dua-duanya! Kalo lo pemula, lo dapet <strong>roadmap</strong> jelas. Kalo udah ada <strong>followers</strong>, lo bakal belajar <strong>scaling</strong> & monetisasi yang lebih <strong>advanced</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        
+
+<footer>
+        <div class="container">
+            
+            
+
+<div id="partners-mini-section-footer">
+                <h3>DISENGGELARAKAN & DIDUKUNG OLEH</h3>
+                <div class="partner-mini-grid">
+                    <span class="partner-mini-item"><i class="fas fa-desktop"></i> Geldify Digital</span>
+                    <span class="partner-mini-item"><i class="fas fa-lightbulb"></i> Samma Creative Agency</span>
+                    <span class="partner-mini-item"><i class="fas fa-cube"></i> Senyawa Space</span>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+
+            <!-- [MODIFIED] Link Email ke Instagram DM -->
+            <p class="footer-title">Ada pertanyaan? <a href="https://www.instagram.com/geldify.digital/" target="_blank" rel="noopener noreferrer">Kontak kami</a>.</p>
+            <!-- [MODIFIED] Hapus 'Didesain dengan' -->
+            <p>&copy; 2025 Geldify Digital & Samma Creative Agency. <i class="fas fa-paint-brush" style="color: var(--primary-accent);"></i></p>
+        </div>
+    </footer>
+    </div>
+    
+    
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // 1. Smooth scroll untuk link anchor
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // 2. Intersection Observer untuk animasi fade-in
+            // [MODIFIED] Menambahkan .flip-card ke observer
+            const sections = document.querySelectorAll('.flip-card, .feature-visual, .accordion-item, .details-info-box, .ticket-box-full, #partners-mini-section-footer');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Staggered delay untuk flip cards
+                        if (entry.target.classList.contains('flip-card')) {
+                            entry.target.style.transitionDelay = `${index * 100}ms`;
+                        }
+                        entry.target.classList.add('fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(section);
+            });
+            
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .fade-in-up {
+                    opacity: 1 !important;
+                    transform: translateY(0) !important;
+                }
+            `;
+            document.head.appendChild(style);
+
+            // 3. Accordion Logic (Hanya untuk FAQ)
+            const accordions = document.querySelectorAll('.accordion');
+            accordions.forEach(accordion => {
+                const headers = accordion.querySelectorAll('.accordion-header');
+                headers.forEach(header => {
+                    header.addEventListener('click', () => {
+                        const clickedItem = header.closest('.accordion-item');
+                        
+                        const allItems = accordion.querySelectorAll('.accordion-item');
+                        allItems.forEach(item => {
+                            if (item !== clickedItem) {
+                                item.classList.remove('active');
+                            }
+                        });
+                        
+                        clickedItem.classList.toggle('active');
+                    });
+                });
+            });
+            
+            // 4. [NEW] Flip Card Logic (Hanya untuk #formula-section)
+            const flipCards = document.querySelectorAll('.flip-card');
+            flipCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('clicked');
+                });
+            });
+
+            // 5. [DELETED] 3D Tilt JS
+            // 6. [DELETED] Magnetic Button JS
+
+        });
+    </script>
+
+</body>
+</html>
