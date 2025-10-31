@@ -150,6 +150,52 @@
             z-index: 1;
         }
 
+        /* [NEW] Poster Placeholder */
+        .poster-placeholder-container {
+            max-width: 500px; /* Lebar poster */
+            margin: 40px auto 40px auto; /* Jarak atas/bawah */
+            position: relative;
+            z-index: 1;
+        }
+        .poster-placeholder {
+            width: 100%;
+            padding-top: 125%; /* Aspect ratio 4:5 (kayak poster IG) */
+            background-color: var(--card-secondary);
+            border: 3px solid var(--card-border);
+            border-radius: var(--radius);
+            box-shadow: var(--hard-shadow);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .poster-placeholder:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 4px 4px 0px var(--foreground);
+        }
+        .poster-placeholder span {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            left: 20px;
+            right: 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            line-height: 1.2;
+        }
+        .poster-placeholder .speakers {
+            top: auto;
+            transform: none;
+            font-size: 1.5rem;
+            bottom: 30px;
+            color: var(--primary-accent);
+        }
+
         /* * ======================================================
          * BUTTONS (Tombol)
          * ======================================================
@@ -906,8 +952,17 @@
                 <p class="sub-headline">
                     Bongkar <strong>blueprint</strong> A-Z dari <strong>dua master creator</strong>. Ubah passion jadi sustainable career!
                 </p>
-                <!-- [MODIFIED] Teks Tombol CTA -->
-                <a href="#final-cta-section" class="btn btn-primary">AMBIL TIKETMU <i class="fas fa-arrow-right"></i></a>
+                
+                <!-- [NEW] Placeholder Poster -->
+                <div class="poster-placeholder-container">
+                    <div class="poster-placeholder">
+                        <span>POSTER WEBINAR<br>CREATOR FORMULA</span>
+                        <span class="speakers">AUBREY SHAGUFTA<br>&<br>ABDURRAHMAN ASSUDAISY</span>
+                    </div>
+                </div>
+                
+                <!-- [MODIFIED] Teks Tombol CTA & Link Checkout -->
+                <a href="http://lynk.id/geldifydigital/058gk5y0o4j9/checkout" target="_blank" rel="noopener noreferrer" class="btn btn-primary">AMBIL TIKETMU <i class="fas fa-arrow-right"></i></a>
             </div>
         </header>
 
@@ -1113,8 +1168,8 @@
                             <p class="price-label">Harga Spesial Hari Ini:</p>
                             <p class="price-display">Rp 99.000</p>
                             
-                            <!-- [MODIFIED] Teks Tombol CTA -->
-                            <a href="#" class="btn btn-primary btn-primary-cta" id="btn-primary-cta">
+                            <!-- [MODIFIED] Teks Tombol CTA & Link Checkout -->
+                            <a href="http://lynk.id/geldifydigital/058gk5y0o4j9/checkout" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-primary-cta" id="btn-primary-cta">
                                 AMBIL TIKETMU SEKARANG! <i class="fas fa-chevron-right"></i>
                             </a>
                         </div>
