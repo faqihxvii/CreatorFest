@@ -157,43 +157,20 @@
             position: relative;
             z-index: 1;
         }
-        .poster-placeholder {
+        
+        /* [MODIFIED] Ganti styling div ke img */
+        .poster-image {
             width: 100%;
-            padding-top: 125%; /* Aspect ratio 4:5 (kayak poster IG) */
+            height: auto; /* Maintain aspect ratio */
             background-color: var(--card-secondary);
             border: 3px solid var(--card-border);
             border-radius: var(--radius);
             box-shadow: var(--hard-shadow);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
             transition: all 0.2s ease;
         }
-        .poster-placeholder:hover {
+        .poster-image:hover {
             transform: translate(3px, 3px);
             box-shadow: 4px 4px 0px var(--foreground);
-        }
-        .poster-placeholder span {
-            position: absolute;
-            top: 40%;
-            transform: translateY(-50%);
-            left: 20px;
-            right: 20px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            letter-spacing: 1px;
-            color: var(--text-secondary);
-            line-height: 1.2;
-        }
-        .poster-placeholder .speakers {
-            top: auto;
-            transform: none;
-            font-size: 1.5rem;
-            bottom: 30px;
-            color: var(--primary-accent);
         }
 
         /* * ======================================================
@@ -955,10 +932,11 @@
                 
                 <!-- [NEW] Placeholder Poster -->
                 <div class="poster-placeholder-container">
-                    <div class="poster-placeholder">
-                        <span>POSTER WEBINAR<br>CREATOR FORMULA</span>
-                        <span class="speakers">AUBREY SHAGUFTA<br>&<br>ABDURRAHMAN ASSUDAISY</span>
-                    </div>
+                    <!-- [MODIFIED] Ganti div ke img -->
+                    <img src="https://upld.zone.id/uploads/3zi7t0iq/creator-formula.webp" 
+                         alt="Poster Webinar Creator Formula" 
+                         class="poster-image"
+                         onerror="this.src='https://placehold.co/500x625/FFF8E7/111827?text=Poster+Webinar'">
                 </div>
                 
                 <!-- [MODIFIED] Teks Tombol CTA & Link Checkout -->
@@ -1302,7 +1280,7 @@
 
             // 2. Intersection Observer untuk animasi fade-in
             // [MODIFIED] Menambahkan .flip-card ke observer
-            const sections = document.querySelectorAll('.flip-card, .feature-visual, .accordion-item, .details-info-box, .ticket-box-full, #partners-mini-section-footer');
+            const sections = document.querySelectorAll('.flip-card, .feature-visual, .accordion-item, .details-info-box, .ticket-box-full, #partners-mini-section-footer, .spill-box');
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
